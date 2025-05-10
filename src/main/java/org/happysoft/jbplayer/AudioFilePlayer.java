@@ -21,7 +21,6 @@ import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
  */
 public class AudioFilePlayer implements Runnable {
   
-  private long framePosition;
   private AudioFormat audioFormat;
   private AudioInputStream fileInputStream;
   private AudioInputStream audioInputStream;
@@ -126,7 +125,6 @@ public class AudioFilePlayer implements Runnable {
       if(!paused) {
         int n = audioInputStream.read(buffer, 0, buffer.length);
         if (n != -1) {
-          framePosition = line.getLongFramePosition();
           line.write(buffer, 0, n);
         } else {
           fireMediaEvent(AudioFileEvent.PlaybackStatus.MEDIA_ENDED);
@@ -140,7 +138,7 @@ public class AudioFilePlayer implements Runnable {
   
   private void fireMediaEvent(AudioFileEvent.PlaybackStatus status) {
     if(currentRequest != null) {
-      AudioFileEvent event = new AudioFileEvent(currentRequest, status, framePosition);
+      AudioFileEvent event = new AudioFileEvent(currentRequest, status);
       for (AudioPlaybackListener listener : listeners) {
         listener.notifyMediaEvent(event);
       }

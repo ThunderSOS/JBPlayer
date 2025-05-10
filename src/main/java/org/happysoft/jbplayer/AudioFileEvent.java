@@ -15,14 +15,12 @@ public class AudioFileEvent {
     MEDIA_ERROR
   }
   
-  private long framePosition = 0L;
   private final RequestDetails requestDetails;
   private final PlaybackStatus status;
   
-  public AudioFileEvent(RequestDetails requestDetails, PlaybackStatus status, long framePosition) {
+  public AudioFileEvent(RequestDetails requestDetails, PlaybackStatus status) {
     this.requestDetails = requestDetails;
     this.status = status;
-    this.framePosition = framePosition;
   }
   
   public PlaybackStatus getStatus() {
@@ -32,8 +30,5 @@ public class AudioFileEvent {
   public RequestDetails getRequestDetails() {
     return requestDetails;
   }
-  
-  public long getFrame() {
-    return framePosition;
-  }
+
 }
