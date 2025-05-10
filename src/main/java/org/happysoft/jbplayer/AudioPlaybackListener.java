@@ -2,8 +2,7 @@
 package org.happysoft.jbplayer;
 
 /**
- *
- * @author chrisf
+ * @author ChrisF
  */
 public interface AudioPlaybackListener {
   void notifyMediaEvent(AudioFileEvent event); 
