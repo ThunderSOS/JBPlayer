@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import org.happysoft.jbplayer.*;
 
 /**
- * @author chrisf
+ * @author ChrisF
  */
 public class TestPlaybackController extends TestCase implements AudioPlaybackListener {
   
@@ -23,18 +23,12 @@ public class TestPlaybackController extends TestCase implements AudioPlaybackLis
   public void notifyMediaEvent(AudioFileEvent event) {
     System.out.println("AudioEvent - " + event.getStatus() + " - " + event.getRequestDetails().getFullPath());
     switch(event.getStatus()) {
-      case MEDIA_ENDED -> mediaEndedEventsCount++;
-        
-      case MEDIA_ERROR -> mediaErrorEventsCount++;
-        
-      case MEDIA_PAUSED -> mediaPausedEventsCount++;
-        
-      case MEDIA_RESUMED -> mediaResumedEventsCount++;
-       
-      case MEDIA_STARTED -> mediaStartedEventsCount++;
-        
-      case MEDIA_STOPPED -> mediaStoppedEventsCount++;
-          
+      case MEDIA_ENDED -> mediaEndedEventsCount++;        
+      case MEDIA_ERROR -> mediaErrorEventsCount++;        
+      case MEDIA_PAUSED -> mediaPausedEventsCount++;        
+      case MEDIA_RESUMED -> mediaResumedEventsCount++;       
+      case MEDIA_STARTED -> mediaStartedEventsCount++;        
+      case MEDIA_STOPPED -> mediaStoppedEventsCount++;          
     }
   }
   
