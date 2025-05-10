@@ -20,12 +20,12 @@
 package org.happysoft.jbplayer;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.Instant;
 
 
 public class RequestDetails extends SelectionDetails implements Serializable {
 
-  protected java.sql.Timestamp requestTime;
+  protected Instant requestTime;
   protected long requestId;
   protected String requestedBy;
   protected String status;
@@ -39,10 +39,10 @@ public class RequestDetails extends SelectionDetails implements Serializable {
   public void setRequestId(long requestId) {
     this.requestId = requestId;
   }
-  public java.sql.Timestamp getRequestTime() {
+  public Instant getRequestTime() {
     return requestTime;
   }
-  public void setRequestTime(Timestamp requestTime) {
+  public void setRequestTime(Instant requestTime) {
     this.requestTime = requestTime;
   }
   public String getRequestedBy() {
